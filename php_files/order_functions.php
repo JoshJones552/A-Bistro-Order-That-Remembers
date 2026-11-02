@@ -5,7 +5,7 @@ session_start();
 function order(): string {
    $dessert = trim($_POST['dessert'] ?? 'none');
    $drink = trim($_POST['drink'] ?? 'none');
-   $drinkSize = trim($_POST['drinkSize'] ?? '');
+   $drinkSize = trim($_POST['drinkSize'] ?? 'none');
 
    $_SESSION['dessert'] = $dessert !== '' && $dessert !== 'none'
       ? $dessert
@@ -13,7 +13,7 @@ function order(): string {
    $_SESSION['drink'] = $drink !== '' && $drink !== 'none'
       ? $drink
       : '(not selected)';
-   $_SESSION['drinkSize'] = $drinkSize !== ''
+   $_SESSION['drinkSize'] = $drinkSize !== 'none'
       ? $drinkSize
       : '(not selected)';
 
