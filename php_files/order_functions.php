@@ -3,9 +3,9 @@
 session_start();
 
 function order(): string {
-   $dessert = trim($_POST['dessert'] ?? 'none');
-   $drink = trim($_POST['drink'] ?? 'none');
-   $drinkSize = trim($_POST['drinkSize'] ?? 'none');
+   $dessert = trim($_POST['dessert'] ?? '');
+   $drink = trim($_POST['drink'] ?? '');
+   $drinkSize = trim($_POST['drinkSize'] ?? '');
 
    $_SESSION['dessert'] = $dessert !== '' && $dessert !== 'none'
       ? $dessert
