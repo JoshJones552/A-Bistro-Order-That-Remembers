@@ -13,13 +13,13 @@ function order(): string {
    $_SESSION['drink'] = $drink !== '' && $drink !== 'none'
       ? $drink
       : '(not selected)';
-   $_SESSION['drinkSize'] = $drinkSize !== 'none'
+   $_SESSION['drinkSize'] = $drinkSize !== '' && $drinkSize !== 'none'
       ? $drinkSize
       : '(not selected)';
 
-   return "Dessert: {$_SESSION['dessert']}<br>"
-      . "Drink: {$_SESSION['drink']}<br>"
-      . "Drink size: {$_SESSION['drinkSize']}";
+   return "Dessert: " . htmlspecialchars($_SESSION['dessert']) . "<br>"
+      . "Drink: " . htmlspecialchars($_SESSION['drink']) . "<br>"
+      . "Drink size: " . htmlspecialchars($_SESSION['drinkSize']);
 }
 
 function sessionValue(string $key): string {
