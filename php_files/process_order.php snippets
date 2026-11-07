@@ -6,6 +6,17 @@ $visitStamp = date('l, F j, Y g:i a');
 setcookie('lastVisit', $visitStamp, time() + 86400, '/');
 ?>
 
+
+
+<!DOCTYPE hmtl>
+</html>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, intial-scale=1.0"?>
+      <title>Order Summart</title>
+</head>
+<body>
+
 <div class="receipt-card"><?= $orderSummary; ?></div>
 
 <div class="insight-card">
@@ -25,3 +36,6 @@ setcookie('lastVisit', $visitStamp, time() + 86400, '/');
    </div>
    <p class="insight-note full-width-note"><?= htmlspecialchars(pricingNote()); ?></p>
 </div>
+
+</body>
+</html>
