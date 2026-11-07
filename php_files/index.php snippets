@@ -3,6 +3,17 @@
 session_start();
 require_once 'order_functions.php';
 ?>
+<?php
+$welcomeBack = '';
+if (isset($_COOKIE['lastVisit'])) {
+   $last = htmlspecialchars($_COOKIE['lastVisit']);
+   $welcomeBack = "Welcome back! Your last visit was {$last}.";
+} else {
+   $welcomeBack = 'First time at Chez Session? Welcome in!';
+}
+?>
+
+<p class="welcome-note"><?= $welcomeBack ?></p>
 
 
 <option value="Cheesecake" <?= dessertSelected("Cheesecake"); ?>>Cheesecake</option>
