@@ -1,41 +1,47 @@
 <?php
-session_start();
-require "./order_functions.php";
+require_once 'order_functions.php';
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: index.php');
+    exit;
+}
+
 $orderSummary = order();
 $visitStamp = date('l, F j, Y g:i a');
 setcookie('lastVisit', $visitStamp, time() + 86400, '/');
 ?>
-
-
-
-<!DOCTYPE hmtl>
-</html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, intial-scale=1.0"?>
-      <title>Order Summart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chez Session - Receipt</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
+    <h1>Order receipt</h1>
+    <div class="receipt-card"><?= $orderSummary ?></div>
 
-<div class="receipt-card"><?= $orderSummary; ?></div>
+    <div class="insight-card">
+        <h3>Order feedback</h3>
+        <p><?= htmlspecialchars(completionMessage()) ?></p>
+        <p class="insight-note"><?= htmlspecialchars(pairingSuggestion()) ?></p>
+    </div>
 
-<div class="insight-card">
-   <h3>Order feedback</h3>
-   <p><?= htmlspecialchars(completionMessage()); ?></p>
-   <p class="insight-note"><?= htmlspecialchars(pairingSuggestion()); ?></p>
+    <div class="insight-card pricing-grid">
+        <div>
+            <h3>Estimated total</h3>
+            <p class="price-figure"><?= htmlspecialchars(formattedTotal()) ?></p>
+        </div>
+        <div>
+            <h3>Order profile</h3>
+            <p><?= htmlspecialchars(orderProfile()) ?></p>
+        </div>
+        <p class="insight-note full-width-note"><?= htmlspecialchars(pricingNote()) ?></p>
+    </div>
+
+    <p><a href="index.php">Change order</a> | <a href="forget_order.php">Forget order</a></p>
 </div>
-
-<div class="insight-card pricing-grid">
-   <div>
-      <h3>Estimated total</h3>
-      <p class="price-figure"><?= htmlspecialchars(formattedTotal()); ?></p>
-   </div>
-   <div>
-      <h3>Order profile</h3>
-      <p><?= htmlspecialchars(orderProfile()); ?></p>
-   </div>
-   <p class="insight-note full-width-note"><?= htmlspecialchars(pricingNote()); ?></p>
-</div>
-
 </body>
 </html>
