@@ -1,3 +1,7 @@
 body { font-family: Arial, sans-serif; background: #f5efe6; color: #333; margin: 0; padding: 24px; }
 .container { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 24px; }
 h1, h3 { color: #6d4935; }
+label { display: block; margin: 14px 0 6px; }
+select { display: block; width: 100%; max-width: 390px; padding: 8px; }
+fieldset { border: 1px solid #d6c8b9; margin: 16px 0; }
+
