@@ -4,4 +4,14 @@ h1, h3 { color: #6d4935; }
 label { display: block; margin: 14px 0 6px; }
 select { display: block; width: 100%; max-width: 390px; padding: 8px; }
 fieldset { border: 1px solid #d6c8b9; margin: 16px 0; }
+fieldset label { display: inline-block; margin: 8px 16px 8px 0; }
+button { padding: 9px 15px; background: #6d4935; color: white; border: 0; border-radius: 5px; cursor: pointer; }
+.plain-button { background: #777; }
+.insight-card, .receipt-card { background: #f6f2ec; border-radius: 8px; padding: 16px; margin-top: 18px; }
+.insight-note { color: #5b5b5b; }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.full-width-note { grid-column: 1 / -1; }
+.price-figure { font-weight: bold; font-size: 24px; }
+a { color: #71492c; }
+@media (max-width: 500px) { .pricing-grid { display: block; } }
 
