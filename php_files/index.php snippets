@@ -1,3 +1,9 @@
+
+<?php
+require_once 'order_function.php';
+?>
+
+
 <option value="Cheesecake" <?= dessertSelected("Cheesecake"); ?>>Cheesecake</option>
 <option value="Coffee" <?= drinkSelected("Coffee"); ?>>Coffee</option>
 <input type="radio" name="drinkSize" value="Small" <?= drinkSizeSelected("Small"); ?>>
