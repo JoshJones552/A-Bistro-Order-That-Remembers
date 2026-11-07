@@ -18,8 +18,11 @@ if (isset($_COOKIE['lastVisit'])) {
 
 
 
-
-
+<div 
+<div class="insight-card">
+   <h3>Live guidance</h3>
+   <p>Start by choosing a dessert.<p>
+<div>
 
 
 
